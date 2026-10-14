@@ -29,21 +29,21 @@ This prompt proves the whole payment flow against the Stripe sandbox "ormac bv s
 
 ## Test matrix
 
-Use Stripe test cards and test clocks. Run each case NL; also run cases 1, 3 and 6 in EN. Desktop for all; repeat 1 and 3 on mobile (390 px).
+Payment methods follow README decision 2: **iDEAL only at checkout, SEPA Direct Debit (the mandate iDEAL creates) for renewals, no cards**. Checkout sets no `payment_method_types`, so the sandbox Dashboard → Payment methods must have iDEAL and SEPA Direct Debit on and cards off; check this before case 1. Use the iDEAL test bank page (Authorize / Fail) and test clocks. For SEPA, use the test IBANs from Stripe's testing docs (verify them there; at the time of writing `NL39RABO0300065264` succeeds and `NL91ABNA0417164300` fails). Run each case NL; also run cases 1, 3 and 6 in EN. Desktop for all; repeat 1 and 3 on mobile (390 px).
 
 | # | Case | Expected |
 |---|---|---|
-| 1 | Free account buys a losse meting for bike A (card 4242…) | Charge €13,50; bike A full, bike B still gated; 3-month expiry; purchase mail once |
+| 1 | Free account buys a losse meting for bike A (iDEAL, Authorize) | Charge €13,50; bike A full, bike B still gated; 3-month expiry; purchase mail once |
 | 2 | Checkout without the withdrawal checkbox | Impossible in UI; direct POST without `withdrawalAccepted` is rejected |
-| 3 | Annual subscription (card) | First invoice €21,50; all bikes open; 2 gift credits; welcome mail once |
+| 3 | Annual subscription (iDEAL, Authorize) | First invoice €21,50; all bikes open; 2 gift credits; welcome mail once; the subscription's default payment method is a SEPA Direct Debit mandate |
 | 4 | Upgrade within 6 months after case 1 | Session shows €9,50 (coupon applied server-side); invoice €9,50; subscription price €21,50 |
 | 5 | Upgrade after the 6-month window (test clock), or for a user without a losse meting | Upgrade not offered; direct POST rejected `UPGRADE_NOT_ELIGIBLE` |
 | 6 | Annual + personal bike fit | €234,50 (21,50 + 213,00); "Plan je afspraak" with the agenda link; fitter notification once; renewal later €21,50 |
 | 7 | Standalone appointment as an eligible user / as a free user | €209,50 and notification / rejected `PERSONAL_FIT_NOT_ELIGIBLE` |
-| 8 | 3-D Secure card (4000 0025 0000 3155), complete and abandon | Complete: access; abandon: no access, choice kept, retry works |
-| 9 | SEPA Direct Debit / iDEAL (if enabled in the sandbox): async success and async failure | Access only after `async_payment_succeeded`; failure leaves no access and shows the Mislukt state |
+| 8 | iDEAL Fail on the test bank page, and abandon (close the bank page / back to the site) | Fail and abandon: no access, choice kept, retry with Authorize works; cards are not offered in Checkout |
+| 9 | Async SEPA: renew case 3 with the succeeding test IBAN as default payment method, and a second account with the failing IBAN | Renewal access only after the invoice is paid (`invoice.paid`); a failed debit leaves no extended access. If Checkout itself ever returns an async session: access only after `async_payment_succeeded`, failure shows the Mislukt state | Access only after `async_payment_succeeded`; failure leaves no access and shows the Mislukt state |
 | 10 | Test clock: advance case 3 by 1 year | Renewal invoice €21,50; entitlement extended to the new period end; renewal reminder sent N days before, once |
-| 11 | Renewal payment fails (attach failing card 4000 0000 0000 0341 before the clock advance) | Access ends at the period end (no grace beyond Stripe's retry settings); no false "paid" state |
+| 11 | Renewal payment fails (set the failing test IBAN as default payment method via the Customer Portal before the clock advance) | Access ends at the period end (no grace beyond Stripe's retry settings); no false "paid" state |
 | 12 | Cancel in year 1 via the in-app button | `cancel_at_period_end`; access until the end; no refund; cancellation mail |
 | 13 | Cancel in year 2 (after case 10) | Subscription cancelled now; pro-rata refund of the €21,50 renewal for the unused days; refund amount matches `renewalRefundCents`; mail shows the amount |
 | 14 | Full refund from the Stripe Dashboard of a losse meting | Entitlement revoked; checkout marked refunded |
