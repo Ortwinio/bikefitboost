@@ -125,7 +125,8 @@ Each answer goes into this README under "Decisions" with a date.
 
 | Step | Status | Date | Evidence |
 |---|---|---|---|
-| 01 | done, PR open (not merged) | 7 Oct 2026 | `output-01-hardening.md`; all gates green, flags OFF |
+| 01 | done, live (PR #31, 0ec8d367) | 8 Oct 2026 | `output-01-hardening.md`; all gates green, flags OFF |
+| 02a | done, live (PR #32, 39c1cf38): rider redemption of the free transition measurement | 8 Oct 2026 | `audit/02a-notes.md` |
 | 02 | open | | |
 | 03 | open | | |
 | 04 | open | | |
