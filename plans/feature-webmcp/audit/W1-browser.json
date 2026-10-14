@@ -1,0 +1,78 @@
+{
+  "scope": "Real Next public page; real dashboard component with offline auth/query fixtures. No real session/backend/agent proof.",
+  "records": [
+    {
+      "locale": "nl",
+      "surface": "public",
+      "tools": [
+        "calc_frame_size",
+        "site_get_context",
+        "site_list_destinations",
+        "site_navigate",
+        "site_find_tools"
+      ],
+      "context": "pass",
+      "forbiddenNavigation": "pass",
+      "pause": "not applicable"
+    },
+    {
+      "locale": "nl",
+      "surface": "dashboard",
+      "tools": [
+        "bikes_list",
+        "fit_list_sessions",
+        "account_get_profile_summary",
+        "account_get_access",
+        "bikes_open_new",
+        "fit_open_start",
+        "account_open_profile",
+        "site_get_context",
+        "site_list_destinations",
+        "site_navigate",
+        "site_find_tools"
+      ],
+      "context": "pass",
+      "forbiddenNavigation": "pass",
+      "pause": "pass"
+    },
+    {
+      "locale": "en",
+      "surface": "public",
+      "tools": [
+        "calc_frame_size",
+        "site_get_context",
+        "site_list_destinations",
+        "site_navigate",
+        "site_find_tools"
+      ],
+      "context": "pass",
+      "forbiddenNavigation": "pass",
+      "pause": "not applicable"
+    },
+    {
+      "locale": "en",
+      "surface": "dashboard",
+      "tools": [
+        "bikes_list",
+        "fit_list_sessions",
+        "account_get_profile_summary",
+        "account_get_access",
+        "bikes_open_new",
+        "fit_open_start",
+        "account_open_profile",
+        "site_get_context",
+        "site_list_destinations",
+        "site_navigate",
+        "site_find_tools"
+      ],
+      "context": "pass",
+      "forbiddenNavigation": "pass",
+      "pause": "pass"
+    }
+  ],
+  "bundle": {
+    "initialScriptCount": 38,
+    "noBridgeOrPackInInitialScripts": true,
+    "requestedScripts": 43
+  }
+}

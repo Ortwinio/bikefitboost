@@ -1,0 +1,47 @@
+{
+  "fixture": "Production detector, bridge, registry, packs and public frame form; local auth/query/router substitutes.",
+  "limitations": "Not a real Chrome origin-trial agent or live authenticated dashboard; no production services used.",
+  "results": [
+    {
+      "locale": "nl",
+      "surface": "calculators/frame-size",
+      "passed": true,
+      "tool": "calc_frame_size",
+      "readOnlyHint": true,
+      "noDataWrites": true,
+      "navigationUnregisteredStaleTools": true
+    },
+    {
+      "locale": "nl",
+      "surface": "dashboard",
+      "passed": true,
+      "tool": "account_get_profile_summary",
+      "readOnlyHint": true,
+      "noDataWrites": true,
+      "navigationUnregisteredStaleTools": true
+    },
+    {
+      "locale": "en",
+      "surface": "calculators/frame-size",
+      "passed": true,
+      "tool": "calc_frame_size",
+      "readOnlyHint": true,
+      "noDataWrites": true,
+      "navigationUnregisteredStaleTools": true
+    },
+    {
+      "locale": "en",
+      "surface": "dashboard",
+      "passed": true,
+      "tool": "account_get_profile_summary",
+      "readOnlyHint": true,
+      "noDataWrites": true,
+      "navigationUnregisteredStaleTools": true
+    },
+    {
+      "surface": "unsupported-browser",
+      "passed": true,
+      "noLazyBridgeOrPackRequests": true
+    }
+  ]
+}

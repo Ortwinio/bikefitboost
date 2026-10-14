@@ -19,6 +19,7 @@ const PRIMITIVE_FILES = new Set([
 ]);
 
 const EXEMPT_FILES = new Set([
+  "src/components/settings/AgentToolsSettings.tsx",
   "src/components/gifts/GiftGive.tsx",
   "src/components/gifts/GiftRedeem.tsx",
   "src/components/billing/TransitionOffer.tsx",

@@ -271,6 +271,7 @@ export default defineSchema({
     unit_preference: v.optional(
       v.union(v.literal("metric"), v.literal("imperial"))
     ),
+    agentToolsEnabled: v.optional(v.boolean()),
     adminRole: v.optional(
       v.union(
         v.literal("super_admin"),
