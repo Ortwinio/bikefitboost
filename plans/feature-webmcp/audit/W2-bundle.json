@@ -1,0 +1,71 @@
+{
+  "buildId": "9O6KBlF3eDI7MQEGJ8vIg",
+  "method": "Conservative union of manifest client-module chunks; pack/pipeline/bridge markers must exist only outside those chunks.",
+  "results": [
+    {
+      "route": "(public)/calculators/frame-size",
+      "initialChunksChecked": 41,
+      "noBridgePipelineOrPacks": true
+    },
+    {
+      "route": "(public)/calculators/saddle-height",
+      "initialChunksChecked": 40,
+      "noBridgePipelineOrPacks": true
+    },
+    {
+      "route": "(public)/calculators/saddle-width",
+      "initialChunksChecked": 41,
+      "noBridgePipelineOrPacks": true
+    },
+    {
+      "route": "(public)/calculators/crank-length",
+      "initialChunksChecked": 41,
+      "noBridgePipelineOrPacks": true
+    },
+    {
+      "route": "(public)/calculators/bike-fit",
+      "initialChunksChecked": 41,
+      "noBridgePipelineOrPacks": true
+    },
+    {
+      "route": "(public)/calculators/gearing",
+      "initialChunksChecked": 40,
+      "noBridgePipelineOrPacks": true
+    },
+    {
+      "route": "(public)/calculators/power-speed",
+      "initialChunksChecked": 41,
+      "noBridgePipelineOrPacks": true
+    },
+    {
+      "route": "(public)/calculators/climb-planner",
+      "initialChunksChecked": 41,
+      "noBridgePipelineOrPacks": true
+    },
+    {
+      "route": "(public)/calculators/ftp-wkg",
+      "initialChunksChecked": 41,
+      "noBridgePipelineOrPacks": true
+    },
+    {
+      "route": "(public)/calculators/fuel-hydration",
+      "initialChunksChecked": 41,
+      "noBridgePipelineOrPacks": true
+    },
+    {
+      "route": "(public)/tire-pressure-calculator",
+      "initialChunksChecked": 40,
+      "noBridgePipelineOrPacks": true
+    },
+    {
+      "route": "(public)/bandenspanning-calculator",
+      "initialChunksChecked": 40,
+      "noBridgePipelineOrPacks": true
+    },
+    {
+      "route": "(dashboard)/dashboard",
+      "initialChunksChecked": 43,
+      "noBridgePipelineOrPacks": true
+    }
+  ]
+}

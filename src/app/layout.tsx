@@ -18,6 +18,7 @@ import { TemplateSpeedInsights } from "@/components/analytics/TemplateSpeedInsig
 import { NONCE_HEADER_NAME } from "@/lib/csp";
 import { buildOrganizationSchema, buildWebSiteSchema } from "@/lib/seo/jsonLd";
 import { pressureDisplayStyles } from "../../shared/pressure/display";
+import { WebMcpDetect } from "@/lib/webmcp/detect";
 
 const displayFont = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -177,6 +178,7 @@ export default async function RootLayout({
           <GTMConsentLoader gtmId={ANALYTICS_CONFIG.gtmId} nonce={nonce} />
           <ToastProvider>
             <ConvexClientProvider>
+              <WebMcpDetect />
               <FeedbackPanelProvider>{children}</FeedbackPanelProvider>
             </ConvexClientProvider>
             <CookieConsentBanner locale={locale} />

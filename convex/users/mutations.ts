@@ -2,6 +2,16 @@ import { mutation } from "../_generated/server";
 import { v } from "convex/values";
 import { requireUserId } from "../lib/authz";
 
+export const setAgentToolsEnabled = mutation({
+  args: { enabled: v.boolean() },
+  returns: v.null(),
+  handler: async (ctx, { enabled }) => {
+    const userId = await requireUserId(ctx);
+    await ctx.db.patch(userId, { agentToolsEnabled: enabled });
+    return null;
+  },
+});
+
 export const setLocale = mutation({
   args: { locale: v.union(v.literal("nl"), v.literal("en")) },
   returns: v.null(),

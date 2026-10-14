@@ -23,6 +23,7 @@ import {
 import { toolsSettings } from "@/i18n/account/toolsSettings";
 import { emailPreferencesCopy } from "@/i18n/account/emailPreferences";
 import { IPhoneAppInstallCard } from "@/components/settings/IPhoneAppInstallCard";
+import { AgentToolsSettings } from "@/components/settings/AgentToolsSettings";
 import { LanguageSwitch } from "@/components/layout/LanguageSwitch";
 import { ProfilePhotoUpload } from "@/components/profile/ProfilePhotoUpload";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
@@ -156,6 +157,7 @@ export default function SettingsPage() {
               title={messages.settings.preferences.title}
             />
             <CardContent className="space-y-5">
+              <AgentToolsSettings key={user._id} locale={locale} enabled={user.agentToolsEnabled} />
               <div className="bg-muted/40 rounded-2xl border border-border p-4">
                 <p className="mb-2 text-sm font-medium text-foreground">
                   {messages.settings.preferences.language}

@@ -3,6 +3,7 @@ import { ConvexHttpClient } from "convex/browser";
 import { NextResponse, type NextRequest } from "next/server";
 import { api } from "../convex/_generated/api";
 import { BRAND } from "@/config/brand";
+import { originTrialHeader } from "@/config/webmcp";
 import { isAdminRole } from "@/components/admin/auth/admin-auth-shared";
 import { buildContentSecurityPolicy, createCspNonce, createCspRequestHeaders } from "@/lib/csp";
 import {
@@ -197,6 +198,8 @@ function applyDeploymentHeaders(
   }
 
   response.headers.set("Content-Security-Policy", buildContentSecurityPolicy(nonce));
+  const trialHeader = originTrialHeader(request);
+  if (trialHeader && response.status < 300) response.headers.set("Origin-Trial", trialHeader);
   return response;
 }
 
